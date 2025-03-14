@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Farm</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        font-size: 25px;
+        font-weight: lighter;
+      }
+      form {
+        background-color: violet;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+        margin-left: 630px;
+      }
+      input,
+      label {
+        margin: 5px;
+      }
+      input {
+        border-radius: 10px;
+      }
+      button {
+        margin-left: 165px;
+        background-color: white;
+      }
+      .total {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Farm</h1>
+      <form id="animals">
+        <p>List of all Animals:</p>
+        <label for="horse"> Horse:</label>
+        <input type="number" id="horse" min="0" value="0" /> <br />
+        <label for="panda">Panda:</label>
+        <input type="number" id="panda" min="0" value="0" /><br />
+        <label for="duck">Duck:</label>
+        <input type="number" id="duck" min="0" value="0" /><br />
+        <label for="goat">Goat:</label>
+        <input type="number" id="goat" min="0" value="0" /><br />
+        <button type="button" onclick="TotalLegs()">Total</button>
+        
+        <div class="result" id="result">Total Animals: 0</div>
+        <div class="total" id="total">Total Legs: 0</div>
+    </div>
+    </form>
+    <script>
+       function TotalLegs() {
+        const horse = parseInt(document.getElementById("horse").value) || 0;
+        const panda = parseInt(document.getElementById("panda").value) || 0;
+        const duck = parseInt(document.getElementById("duck").value) || 0;
+        const goat = parseInt(document.getElementById("goat").value) || 0;
+
+        const totalLegs = horse * 4 + panda * 4 + duck * 2 + goat * 4;
+        document.getElementById("result").textContent =
+          "Total Legs: " + totalLegs;
+
+        const totalAnimals = horse + panda + duck + goat;
+        document.getElementById("total").textContent =
+          "Total Animals: " + totalAnimals;
+      }
+    </script>
+</body>
+</html>
